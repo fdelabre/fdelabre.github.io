@@ -1,0 +1,253 @@
+body {
+    font-family: Helvetica, sans-serif;
+    color:#262343;
+    margin: 0;
+    padding: 0;
+}
+.container-fluid {
+    margin-top: 20px;
+}
+.item-bold {
+    font-weight: bold;
+}
+
+.row {
+    --bs-gutter-x:none !important;
+}
+.font-20 {
+    font-size: 20px;
+}
+.custom-bg {
+    background-size: cover;
+    background-position: center;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    height: 800px;
+}
+
+.nml {
+    margin-left:0px !important;
+}
+
+.image-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    transition: opacity 0.5s;
+}
+
+/* ############################## */
+/* ########## PARALAX ########### */
+/* ############################## */
+
+#parallax {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: 
+  url(../img/background3.png),
+  url(../img/background2.png), 
+  url(../img/background1D.png),
+  url(../img/backgroundD.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position: 50% 50%;
+  transition: background-image 0.3s ease-in-out;
+}
+
+/* ############################## */
+/* ########## NAV BAR ########### */
+/* ############################## */
+
+.navbar-custom {
+    background-color: #fff;
+}
+.navbar-brand {
+    margin-right: auto;
+}
+.navbar-nav {
+    margin-left: auto;
+}
+.navbar-nav .nav-item {
+    margin-left: 20px;
+}
+
+.navbar-custom {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    background-color: transparent;
+    transition: background-color 0.5s ease;
+}
+
+.navbar-custom a {
+    color:#FFFFFF;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+.navbar-custom.sticky a {
+    color:#262343;
+    text-shadow: none;
+}
+
+.navbar-custom.sticky {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ################################ */
+/* ########## SEARCH BAR ########## */
+/* ################################ */
+
+.search-bar {
+    margin-top:500px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.8); /* Fond blanc légèrement transparent */
+    display: flex;
+    align-items: center;
+    padding: 20px 40px 20px 40px;
+    border-radius: 50px; /* Coins arrondis */
+}
+
+.search-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333; /* Couleur du texte */
+    margin-right: 200px; /* Espace de 200px à droite */
+}
+
+.cursor {
+    animation: blink 1s infinite; /* Animation pour le clignotement */
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.search-icon {
+    font-size: 20px;
+    color: #333;
+}
+
+.typed-text {
+    color: #4a6797;
+}
+
+.center-vertically {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+/* ############################### */
+/* ########## ACCORDION ########## */
+/* ############################### */
+
+.accordion-section {
+    margin: 10px;
+}
+
+.accordion-title {
+    background-color: #2458aa;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.accordion-content {
+    display: none;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+.accordion-section.active .accordion-title {
+    background-color: #2458aa;
+}
+
+/* ################################ */
+/* ########## SWITCH BTN ########## */
+/* ################################ */
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+#canvas-container {
+}
