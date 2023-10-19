@@ -5,7 +5,7 @@ $(document).ready(function() {
     // PARALAX
     var parallaxPower = 0.002;
 
-    // SEARCH BAR 
+    // SEARCH BAR
     const searchInput = $(".typed-text");
     const words = ["Développeur", "Musicien", "joueur de Jeux vidéo"];
 
@@ -97,4 +97,78 @@ $(document).ready(function() {
             }
         });
     });
+    $('.accordion-active').slideDown();
+
+    const sections = $(".accordion-section");
+    const loaderBars = $(".loader-bar");
+    let currentIndexAccordion = 0;
+    const animationDuration = 10000; // 5 seconds
+
+    function openSection(index) {
+      sections.eq(index).find(".accordion-title").trigger("click");
+      sections.eq(index).addClass("active");
+      sections.eq(index).find(".accordion-content").slideDown();
+      $(".section-loader").each(function () {
+        $(this).addClass("hide");
+      });
+      sections.eq(index).find(".section-loader").removeClass("hide");
+    }
+
+    function closeSection(index) {
+      sections.eq(index).removeClass("active");
+      sections.eq(index).find(".accordion-content").slideUp();
+    }
+
+    function resetAllLoader() {
+      loaderBars.each(function () {
+        $(this).stop().css("width", "0%");
+      });
+    }
+
+    function animateLoader(index) {
+      resetAllLoader();
+      loaderBars.eq(index).animate(
+        { width: "100%" },
+        animationDuration,
+        "linear",
+        function () {
+          setTimeout(function () {
+            closeSection(index);
+
+            if (currentIndexAccordion === sections.length - 1) {
+              // If it's the last section, reset to the first section
+              currentIndexAccordion = 0;
+            } else {
+              currentIndexAccordion++;
+            }
+
+            openSection(currentIndexAccordion);
+            loaderBars.eq(currentIndexAccordion).width(0);
+            animateLoader(currentIndexAccordion);
+          }, 1000); // Wait 1 second before opening the next section
+        }
+      );
+    }
+
+    sections.on("click", function () {
+      const clickedIndex = sections.index(this);
+
+      if (clickedIndex === currentIndexAccordion) {
+        // Clicked on the current section, do nothing
+        return;
+      }
+      if (clickedIndex < currentIndexAccordion) {
+        // Clicked on a previous section, close the current section and open the clicked section
+        closeSection(currentIndexAccordion);
+        openSection(clickedIndex);
+        currentIndexAccordion = clickedIndex;
+      } else {
+        // Clicked on a future section, do nothing
+      }
+
+      animateLoader(currentIndexAccordion);
+    });
+
+    openSection(currentIndexAccordion);
+    animateLoader(currentIndexAccordion);
 });
